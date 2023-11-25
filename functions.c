@@ -7,9 +7,10 @@
  *Return: 1
  */
 
-int f_c(int c)
+int f_c(va_list arg)
 {
-	return write(1, &c, 1);
+	char f = va_arg(arg, int);
+	return (_putchar(f));
 }
 
 /**
@@ -22,14 +23,14 @@ int f_c(int c)
 int f_s(va_list arg)
 {
 	int c = 0;
-	char str* = va_arg(arg, char *)
+	char *str = va_arg(arg, char *);
 	
 	while (str != NULL && str[c] != '\0')
 	{
-		f_c(str[i];
-		i++;
+		_putchar(str[c]);
+		c++;
 	}
-	return (i);
+	return (c);
 }
 
 /**
@@ -41,8 +42,19 @@ int f_s(va_list arg)
 
 int f_mod(va_list arg)
 {
-	void(arg);
-	f_c('%');
+	(void)arg;
+	_putchar('%');
 	return (1);
+}
+
+/**
+ * _putchar - print character
+ * @c: character
+ * Return: 1
+ */
+
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
 }
 

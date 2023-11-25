@@ -9,35 +9,39 @@
 
 int _printf(const char *format, ...)
 {
-	va_list arg;                        //variadic function values
-	int c = 0, i = 0;                   //counter & index
-
+	va_list arg;
+	int c = 0, i = 0;
+	int (*fun)(va_list);
 	va_start(arg, format);
 
 	if ((!format) || (format[i] == '%' && format[i + 1] == '\0'))
 	{
 		return (-1);
+	}
+
+	fun = get_f(format);
 
 	while (format[i])
 	{
 		if (format[i] != '%')
 		{
-			f_c(format[i]);
+			_putchar(format[i]);
 			c++;
 		}
 		if (format[i] == '%' && format[i + 1] != 'K' && format[i + 1] != '!')
 		{
-			c += get_f(*(format + (i + 1)), arg);
+			c += fun(arg);
 			i += 2;
 			continue;
 		}
 		else if ((format[i] == '%' && format[i + 1] == 'K') ||
 				(format[i] == '%' && format[i + 1] == '!'))
 		{
-			f_c(format[i]);
+			_putchar(format[i]);
 			c++;
 		}
-		i++
+		i++;
 	}
 	va_end(arg);
 	return (c);
+}

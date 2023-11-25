@@ -5,23 +5,23 @@
  * Return: positiong of function
  */
 
-int (*get_f(char specifier))(char *, va_list)
+int (*get_f(const char *format))(va_list)
 {
 	int i = 0;
 
-	get_f f_arr[] = {
-		{"c", f_c},
-		{"s", f_s},
-		{"%", f_mod},
-		{NULL, NULL}
+	get f_arr[] = {
+		{'c', f_c},
+		{'s', f_s},
+		{'%', f_mod},
+		{0, NULL}
 	};
 
 	while (f_arr[i].s)
 	{
-		if (specifier == *f_arr[i].s)
-			break
+		if (f_arr[i].s == *format)
+			break;
 
-		i++
+		i++;
 	}
 return (f_arr[i].f);
 }

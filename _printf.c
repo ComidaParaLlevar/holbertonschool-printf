@@ -14,7 +14,6 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(arg, format);
-
 	while (*format)
 	{
 		if (*format == '%')
@@ -27,13 +26,13 @@ int _printf(const char *format, ...)
 					return (-1);
 				if (format[c] == '!' || format[c] == 'K')
 				{
+					format--;
 					c += _putchar(*format);
 					format++;
 					c += _putchar(*format);
 					continue;
 				}
-				else
-					c += _putchar('%');
+				c += _putchar('%');
 			}
 			else
 			{

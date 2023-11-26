@@ -3,10 +3,8 @@
  * _printf - prints formated output
  * @format: string to evaluate
  * @...: variadic function
- *
  * Return: ammount of chars written
  */
-
 int _printf(const char *format, ...)
 {
 	va_list arg;
@@ -15,7 +13,6 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-
 	va_start(arg, format);
 
 	while(*format)
@@ -27,9 +24,7 @@ int _printf(const char *format, ...)
 			if (fun == NULL)
 			{
 				if (*format == '\0')
-				{
 					return (-1);
-				}
 				if (*format == '!')
 				{
 					c += _putchar('!');
@@ -47,9 +42,7 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
-		{
 			c += _putchar(*format);
-		}
 		format++;
 	}
 	va_end(arg);

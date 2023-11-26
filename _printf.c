@@ -8,8 +8,7 @@
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int c = 0;
-	int (*fun)(va_list);
+	int c = 0, (*fun)(va_list);
 
 	if (format == NULL)
 		return (-1);
@@ -30,6 +29,7 @@ int _printf(const char *format, ...)
 					c += _putchar(*format);
 					format++;
 					c += _putchar(*format);
+					format++;
 					continue;
 				}
 				c += _putchar('%');

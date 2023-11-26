@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * get_f - gets appropiate function for _printf
- * @specifier: string specifier
+ * @format: string specifier
  * Return: positiong of function
  */
 

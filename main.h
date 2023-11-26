@@ -21,8 +21,8 @@ int _putchar(char c);
 
 typedef struct get_functions
 {
-  char s;
-  int (*f)(va_list);
+char s;
+int (*f)(va_list);
 } get;
 
 #endif

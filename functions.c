@@ -3,13 +3,14 @@
 
 /**
  * f_c - add a character to stdout
- *@c: buffer for character
+ *@arg: argument list
  *Return: 1
  */
 
 int f_c(va_list arg)
 {
 	char f = va_arg(arg, int);
+
 	return (_putchar(f));
 }
 

@@ -53,17 +53,6 @@ int f_mod(va_list arg)
 }
 
 /**
- * _putchar - print character
- * @c: character
- * Return: 1
- */
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
  * f_int - print int
  * @arg: arguments to print
  * Return: number of digits

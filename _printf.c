@@ -10,37 +10,47 @@
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int c = 0, i = 0;
+	int c = 0;
 	int (*fun)(va_list);
+
+	if (format == NULL)
+		return (-1);
+
 	va_start(arg, format);
 
-	if ((!format) || (format[i] == '%' && format[i + 1] == '\0'))
+	while(*format)
 	{
-		return (-1);
-	}
-
-	fun = get_f(format);
-
-	while (format[i])
-	{
-		if (format[i] != '%')
+		if (*format == '%')
 		{
-			_putchar(format[i]);
-			c++;
+			format++;
+			fun = get_f(format);
+			if (fun == NULL)
+			{
+				if (*format == '\0')
+				{
+					return (-1);
+				}
+				if (*format == '!')
+				{
+					c += _putchar('!');
+					format++;
+					continue;
+				}
+				else
+					c += _putchar('%');
+			}
+			else
+			{
+				c += fun(arg);
+				format++;
+				continue;
+			}
 		}
-		if (format[i] == '%' && format[i + 1] != 'K' && format[i + 1] != '!')
+		else
 		{
-			c += fun(arg);
-			i += 2;
-			continue;
+			c += _putchar(*format);
 		}
-		else if ((format[i] == '%' && format[i + 1] == 'K') ||
-				(format[i] == '%' && format[i + 1] == '!'))
-		{
-			_putchar(format[i]);
-			c++;
-		}
-		i++;
+		format++;
 	}
 	va_end(arg);
 	return (c);

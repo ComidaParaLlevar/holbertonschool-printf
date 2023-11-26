@@ -24,10 +24,14 @@ int f_s(va_list arg)
 {
 	int c = 0;
 	char *str = va_arg(arg, char *);
-	
-	while (str != NULL && str[c] != '\0')
+
+	if (str == NULL)
+		str = "(null)";
+
+	while (*str)
 	{
-		_putchar(str[c]);
+		_putchar(*str);
+		str++;
 		c++;
 	}
 	return (c);

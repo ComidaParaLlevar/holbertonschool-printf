@@ -1,0 +1,28 @@
+.TH _PRINTF 1 _printf\-0.1
+.SH NAME
+_printf
+.SH SYNOPSIS
+In order to utilize this function a header with #incude "main.h" must be included.
+.SH DESCRIPTION
+This simple custom printf function supports a subset of standard format specifiers,
+providing a basic yet functional alternative to the standard printf. It is designed
+for projects with limited resource requirements or when a minimalistic printf
+implementation is sufficient.
+.SH USAGE
+ To use the simple custom printf function, follow the standard printf syntax with supported
+ format specifiers. Currently supported specifiers include:
+- %d:   Print signed decimal integer.
+- %i:   Print unsigned decimal integer.
+- %c:   Print character.
+- %s:   Print string.
+- %%:   Print a literal '%' character.
+.SH RETURN VALUES
+The _printf() function returns an integer that represents the number of symbols
+printed without counting \0 for the string
+.SH SEE ALSO 
+.I printf(3)
+.SH BUGS 
+No reported bugs.
+.SH AUTHOR
+Lyan Osorio//
+Emanuel Mendez
